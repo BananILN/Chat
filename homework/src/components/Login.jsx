@@ -2,14 +2,14 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../store/UserSlice';
-import { useNavigate } from 'react-router';
+import { useNavigate, Link } from 'react-router';
 
 const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const dispatch = useDispatch();
     const { status, error } = useSelector((state) => state.user);
-    const navigate = useNavigate(); // Используем useNavigate для перенаправления
+    const navigate = useNavigate();
   
     const handleSubmit = async (e) => {
       e.preventDefault();
@@ -44,6 +44,9 @@ const Login = () => {
             {status === 'loading' ? 'Loading...' : 'Login'}
           </button>
         </form>
+        <p>
+          Don't have an account? <Link to="/register">Register here</Link>.
+        </p>
       </div>
     );
   };

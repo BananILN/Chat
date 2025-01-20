@@ -29,7 +29,7 @@ const loadState = () => {
   const store = configureStore({
     reducer: {
       user: userReducer,
-      chat: chatReducer, // Добавьте chatReducer, если он используется
+      chat: chatReducer,
     },
     preloadedState,
   });

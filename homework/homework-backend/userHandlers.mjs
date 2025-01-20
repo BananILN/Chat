@@ -20,5 +20,5 @@ export const login = (req, res) => {
         return res.status(400).json({ message: 'Username or password is incorrect' });
     }
     const token = jwt.sign({username: user.username}, 'your_jwt_secret_key');
-    res.json({ token });
+    res.json({ token, user: { username: user.username } }); // Возвращаем token и user
 };
